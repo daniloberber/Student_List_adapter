@@ -9,31 +9,24 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
 
-    ListView listView = (listView) this.findViewById(R.id.listview);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<String> arrayList=new ArrayList<>();
+        String[] StudentArray={ "Peter","Rodrigo","Danilo","Kanya","Nadine", "Lourenço","Emiliano","Felipe","Reiner","Paul" };
+        List<String> StudentArrayList= Arrays.asList(StudentArray);
 
-        arrayList.add("Peter");
-        arrayList.add("Rodrigo");
-        arrayList.add("Danilo");
-        arrayList.add("Kanya");
-        arrayList.add("Nadine");
-        arrayList.add("Lourenço");
-        arrayList.add("Emiliano");
-        arrayList.add("Felipe");
-        arrayList.add("Reiner");
-        arrayList.add("Paul");
+        ListView listView =  findViewById(R.id.listview);
 
-        ArrayAdapter arrayAdapter=new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1, arrayList);
+        ArrayAdapter <String> arrayAdapter=new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, StudentArrayList);
 
         listView.setAdapter(arrayAdapter);
 
